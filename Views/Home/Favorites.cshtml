@@ -1,0 +1,68 @@
+
+
+<div class="myborders "style="background-image: url('https://3.bp.blogspot.com/-s7Qsvw1AW34/XGwtChKwvSI/AAAAAAAAGow/CtJrREFxVzMwcokgx6CMInxkyI3da8GSACHMYCw/s1600/100-watercolor-pictures-download-free-images-on-unsplash.jpg'); background-size: 100% 100%; height: 100%">
+
+    <h1 class="color-blue">Favorites</h1>
+
+    <div class="col-sm-7 ">
+        @foreach (var item in @ViewBag.Favorites)
+        {
+
+            <ul class="myborders" >
+                <li>
+                    <div class="row ">
+                        <div class="col-sm-5">
+                            <h4>@item.PlaceName </h4>
+                        </div>
+                        <div class="col-sm-4"></div>
+                        @if(item.Creator.UserId == ViewBag.iLoguari.UserId)
+                        {
+                        <div class="col-sm-2"> <a class="acqua" href="/EditPlace/@item.PlaceId">Edit</a> <a class="acqua" href="/PlaceDelete/@item.PlaceId"> Delete </a></div>
+                        }
+                    </div>
+                    <p>@item.PlaceDescription</p>
+
+
+                    <p><img src="~/Images/@item.Myimage" class="myborders" onmouseover="bigImg(this)" onmouseout="normalImg(this)"
+                        asp-append-version="true" height="300px" width="350px"> </p>
+
+
+
+                    <div class="row">
+                        <a class="col-sm-4 acqua" href="@item.Location">@item.PlaceName map</a>
+                        <p class="col-sm-2 acqua">@item.Likes.Count likes</p>
+                        <p class="col-sm-3"> @{
+                                var id = 0;
+
+                                @foreach (var like in item.Likes)
+
+                                    if (like.UserId == ViewBag.iLoguari.UserId)
+                                    {
+                                        id = like.PlaceId;
+                                        break;
+                                    }
+                                if (id == 0)
+                                {
+                                    <a class="acqua" href="/AddLike/@item.PlaceId">Like </a>
+                                }
+                                else
+                                {
+                                    <a class="acqua" href="/RemoveLike/@item.PlaceId">UnLike </a>
+                                }
+                            }
+                        </p>
+                    </div>
+                </li>
+
+            </ul>
+        }
+
+
+    </div>
+    <div class="col-sm-4">
+
+
+
+    </div>
+</div>
+</div>

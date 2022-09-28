@@ -1,0 +1,55 @@
+<h3 class="mt-1">Edit Place</h3>
+@model Place
+
+ @* <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add a Place to post it!</p> *@
+ <div class="row">
+    <div class="col-sm-6"></div>
+<div class="bg-image myborders" style=" background-image: url('https://images.pexels.com/photos/4491499/pexels-photo-4491499.jpeg?cs=srgb&dl=pexels-joshua-woroniecki-4491499.jpg&fm=jpg'); background-size: 100% 100%;
+            height: 100vh">
+            
+                                <form action="/Update/@Model.PlaceId"  enctype="multipart/form-data" method="post" class="mx-1 mx-md-4 col-sm-6 mt-5">
+                            
+                                     <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input asp-for="PlaceName" class="form-control"/>
+                                            <label class="form-label white" asp-for="PlaceName">Place Name: </label>
+                                            <span asp-validation-for="PlaceName"></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input asp-for="PlaceDescription" class="form-control" />
+                                            <label class="form-label white" asp-for="PlaceDescription">Describe place:</label>
+                                            <span asp-validation-for="PlaceDescription"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input asp-for="Location" class="form-control" />
+                                            <label class="form-label white" asp-for="Location"></label>
+                                            <span asp-validation-for="Location"></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select asp-for="PlaceType">
+                                                <option value="Mountains">Mountains</option>
+                                                <option value="Beaches">Beaches</option>
+                                                <option value="Culture">Culture</option>
+                                            </select>
+                                            <label class="form-label white" asp-for="PlaceType"></label>
+                                            <span class="" asp-validation-for="PlaceType"></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input asp-for="Image"  id="file-upload" class="form-control" />
+                                            <label class="form-label white" asp-for="Image"></label>
+                                            <span asp-validation-for="Image"></span>
+                                        </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary btn-lg p-1 beaches button">Update Place</button>
+                                    </div>
+                                </form>

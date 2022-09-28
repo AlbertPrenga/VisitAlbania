@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,30 +9,72 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/VisitAlbania.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">VisitAlbania</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+<body >
+    <div class="body">
+        @if(@Context.Session.GetInt32("userId") != null)
+        {
+    <header class="position-fixed nav-container ">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+            <div class="container-fluid navcolor">
+                
+                <a class="navbar-brand text-primary gold" asp-area="" asp-controller="Home" asp-action="Index">VisitAlbania <img class="flagborder" src="../Images\7bk06q2l0zsy.png" alt="Deshtim" height="32px;" width="50px;"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" >Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home"
+                                asp-action="Privacy">Privacy</a>
+                    </ul>
+
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item favorites">
+                            <a class="nav-link text-dark" id="colortext" asp-area="" asp-controller="Home"
+                                asp-action="Favorites">Most liked places </a>
+                        </li>
+
+                        <li class="nav-item mountains">
+                            <a class="nav-link text-dark"  asp-area="" asp-controller="Home"
+                                asp-action="Mountains">Mountains </a>
+                        </li>
+
+                        <li class="nav-item beaches">
+                            <a class="nav-link text-dark"  asp-area="" asp-controller="Home"
+                                asp-action="Beaches">Beaches </a>
+                        </li>
+
+                        <li class="nav-item culture">
+                            <a class="nav-link text-dark"  asp-area="" asp-controller="Home"
+                                asp-action="Culture">Culture</a>
                         </li>
                     </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-success addNewPlace" asp-area="" asp-controller="Home" asp-action="AddPlace">Add new Place</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Home"
+                         asp-action="Logout">Logout</a>
+                    </ul>
+
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+        }
+    <div class="container ">
+        <main role="main" class="pt-5 pb-3">
             @RenderBody()
         </main>
     </div>
@@ -46,4 +89,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+</div>
 </html>
