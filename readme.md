@@ -9,7 +9,7 @@ Every user can like any post he wants.
 There are three main categories of places created:
 1- Mountains that stands for wild nature tourism ect.
 2- Beaches that is mostly focused for blue tourism.
-3- Culture that is road to Albanian inheritance 
+3- Culture that is a path to Albanian inheritance.
 
 Posts with more likes will be catogrized directly at the page "Most liked".
 
